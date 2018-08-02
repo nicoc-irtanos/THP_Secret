@@ -26,4 +26,6 @@ Rails version : 5.2.0
 
 ```rails server```
 
+Go sur http://localhost:3000/
+
 Voilà allez peace !
