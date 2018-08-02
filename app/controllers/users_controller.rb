@@ -9,16 +9,15 @@ class UsersController < ApplicationController
 
 
   def create
-    user = User.new(user_params)
-    if user.save
+    @user = User.new(user_params)
+    if @user.save
       # Handle a successful save.
-      redirect_to("/users/" + user.id.to_s)
+      redirect_to("/users/" + @user.id.to_s)
       flash.now[:success] = "Profil utilisateur créé"
       log_in user
     else
-      puts "lolo"
-      redirect_to(new_user_path)
-      flash.now[:fail] = "Passwords doesn't match or is too short "
+      render 'new'
+      flash.now[:fail] = "Passwords doesn't match or too short "
     end
   end
 
@@ -30,10 +29,10 @@ class UsersController < ApplicationController
   end
 
   def edit
-    user = current_user
-    if user == nil
+    @user = current_user
+    if @user == nil
       redirect_to login_path
-    elsif user.id == params[:id].to_i
+    elsif @user.id == params[:id].to_i
     else
       redirect_to login_path
     end

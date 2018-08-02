@@ -6,7 +6,7 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
 
   has_secure_password validations: false
-  validates :password, presence: true,
-                       confirmation: true,
+  validates :password, presence: true, 
+                       confirmation: {message: "Les mots de passe ne correspondent pas"},
                        length: { in: 6..40, message: "Rentrez un mot de passe entre 6 et 40 caractères" }
 end
