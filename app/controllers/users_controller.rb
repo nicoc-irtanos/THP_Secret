@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user])
+    @user = User.create!(email: params[:email],password_digest: params[:password])
+    redirect_to("/users/" + @user.id.to_s)
   end
 
   def edit
