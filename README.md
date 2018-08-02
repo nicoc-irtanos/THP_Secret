@@ -1,24 +1,31 @@
-# README
+# Secret
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Salut à toi correcteur, corrigé ou simple curieux passant sur le repo. On a créé une app qui nécessite de s'enregistrer et de se login pour accéder à une page secrète !! Ohlala !
 
-Things you may want to cover:
+Le lien heroku : https://secret-thp-nicoc-nicoz.herokuapp.com/
 
-* Ruby version
+On espère que tu vas kiffer parce qu'on va pas te mentir, à notre niveau, on en a bavé pour pondre ce truc !
 
-* System dependencies
+## Versions de Ruby toussa toussa
 
-* Configuration
+Ruby version : 2.5.1
 
-* Database creation
+Rails version : 5.2.0
 
-* Database initialization
+## Utilisation en local
 
-* How to run the test suite
+```git clone https://github.com/nicolasculerier/THP_Secret```
 
-* Services (job queues, cache servers, search engines, etc.)
+```cd THP_Secret```
 
-* Deployment instructions
+```bundle install --without production```
 
-* ...
+```rails db:migrate```
+
+```rails db:seed``` (pas forcément ultra utile comme tu peux créer un utilisateur direct sur le site)
+
+```rails server```
+
+Go sur http://localhost:3000/
+
+Voilà allez peace !
