@@ -17,6 +17,7 @@ class UsersController < ApplicationController
       log_in @user
     else
       render 'new'
+      # i don't think this flash[:fail] is used
       flash.now[:fail] = "Passwords doesn't match or too short "
     end
   end
