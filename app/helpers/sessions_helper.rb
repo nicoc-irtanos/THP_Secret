@@ -18,10 +18,12 @@ module SessionsHelper
   end
 
   def remember(user)
-    # go to user model
+    # go to user model for more help
     # create a new cookie token and affect it to the user
     user.remember
+    # asign the user.id to the cookie
     cookies.permanent.signed[:user_id] = user.id
+    # asign the user's cookie token to the actuel cookie
     cookies.permanent[:remember_token] = user.remember_token
   end
 

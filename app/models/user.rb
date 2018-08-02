@@ -25,11 +25,15 @@ class User < ApplicationRecord
   
   # Remembers a user in the database for use in persistent sessions.
   def remember
+    # remember_token is an instance variable
+    # create a new token and add it to the User object
     self.remember_token = User.new_token
+    # create a digest from this token and write it in the database
     update_attribute(:remember_digest, User.digest(remember_token))
   end
 
   def authenticated?(remember_token)
+    # verify is the remember_token correspond to the hash stored in the db
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 

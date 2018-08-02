@@ -12,6 +12,9 @@ class SessionsController < ApplicationController
       log_in user
       # i don't know, something about cookies for the login logout 
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+      # remember user by making a cookie (go to sessions_helper)
+      # create a token and assign it to the user
+      # then create a new cookie with the user id and its tokken
       remember user
       redirect_to "/secret_page", flash: {success: 'Connecté !'}
     else
