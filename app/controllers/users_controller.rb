@@ -30,9 +30,12 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
+    # if no user logged
     if @user == nil
       redirect_to login_path
+    # go to edit page
     elsif @user.id == params[:id].to_i
+    # else case are wrong users
     else
       redirect_to login_path
     end

@@ -10,8 +10,8 @@ class User < ApplicationRecord
   validates :password, presence: true, 
                        confirmation: {message: "Les mots de passe ne correspondent pas"},
                        length: { in: 6..40, message: "Rentrez un mot de passe entre 6 et 40 caractères" }
-  
-  # Returns a random token.
+  # Everything below is for the cookies
+  # Returns a random token. 
   def User.new_token
     SecureRandom.urlsafe_base64
   end

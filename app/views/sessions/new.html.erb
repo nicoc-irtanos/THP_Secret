@@ -1,4 +1,5 @@
 <h1>Se connecter</h1>
+<% #affiche l'alert boostrap uniquement si un des flash existe %>
 <% if flash.to_h.has_key?('flash') or flash.to_h.has_key?('danger') %>
   <div class="alert alert-danger" role="alert">
   <%= flash[:flash] %>
