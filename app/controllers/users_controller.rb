@@ -8,12 +8,20 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create!(email: params[:email].downcase, password: params[:password])
+    user = User.create!(email: params[:email].downcase, password: params[:password])
     flash.now[:success] = "Profil utilisateur créé"
-    redirect_to("/users/" + @user.id.to_s)
+    redirect_to("/users/" + user.id.to_s)
+    log_in user
   end
 
   def edit
+    user = current_user
+    if user == nil
+      redirect_to login_path
+    elsif user.id == params[:id].to_i
+    else
+      redirect_to login_path
+    end
   end
 
   def delete
