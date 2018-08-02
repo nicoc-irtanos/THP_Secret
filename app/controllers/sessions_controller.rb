@@ -8,8 +8,7 @@ class SessionsController < ApplicationController
       log_in user
       redirect_to("/secret_page")
     else
-      flash.now[:danger] = 'Mauvaise combinaison email/mot de passe. Essayez de nouveau'
-      render 'new'
+      redirect_to "/login", flash: { danger: 'Mauvaise combinaison email/mot de passe. Essayez de nouveau'}
     end
   end
 

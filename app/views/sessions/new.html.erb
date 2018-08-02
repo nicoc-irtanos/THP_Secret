@@ -1,6 +1,7 @@
 <h1>Se connecter</h1>
+  <%= flash[:flash] %>
+  <%= flash[:danger] %>
 <%= form_for(:session, url: login_path) do |f| %>
-
   <%= f.label :email %>
   <%= f.email_field :email, class: 'form-control' %>
 
