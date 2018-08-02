@@ -1,6 +1,8 @@
+<% if flash.to_h.has_key?('success') %>
 <div class="alert alert-success" role="alert">
 <%= flash[:success] %>
 </div>
+<% else end %>
 <br>
 <h1>Bienvenue sur notre app top-secrète</h1>
 
