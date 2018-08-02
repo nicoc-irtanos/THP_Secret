@@ -12,6 +12,9 @@ class StaticPagesController < ApplicationController
   end
 
   def secret_page
-    
+    if logged_in?
+    else
+      redirect_to "/login"
+    end
   end
 end
