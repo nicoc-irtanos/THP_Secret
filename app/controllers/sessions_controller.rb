@@ -6,13 +6,14 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       log_in user
-      redirect_to user
+      redirect_to user, success: "Connecté !"
     else
-      flash.now[:danger] = 'Invalid email/password combination'
+      flash.now[:danger] = 'Mauvaise combinaison email/mot de passe. Essayez de nouveau'
       render 'new'
     end
   end
 
   def destroy
+    success: "Déconnecté !"
   end
 end
