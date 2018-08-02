@@ -15,6 +15,7 @@ class StaticPagesController < ApplicationController
     if logged_in?
     else
       redirect_to "/login"
+      flash.now = "hey login-toi pour y accéder"
     end
   end
 end

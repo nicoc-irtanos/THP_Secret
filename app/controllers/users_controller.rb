@@ -9,8 +9,8 @@ class UsersController < ApplicationController
 
   def create
     user = User.create!(email: params[:email].downcase, password: params[:password])
-    flash.now[:success] = "Profil utilisateur créé"
     redirect_to("/users/" + user.id.to_s)
+    flash.now[:success] = "Profil utilisateur créé"
     log_in user
   end
 
