@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       # log_in (go to sessions_helper)
       log_in user
-      # i don't know, something about cookies for the login logout 
+      # Si la case dans la view est cochée on remember le user, sinon on le forget
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       # remember user by making a cookie (go to sessions_helper)
       # create a token and assign it to the user

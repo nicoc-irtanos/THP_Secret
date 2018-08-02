@@ -15,7 +15,7 @@ class StaticPagesController < ApplicationController
     if logged_in?
       # then stay on secret_page
     else
-      # else redictiion to the login page with a beautiful flash
+      # else redirection to the login page with a beautiful flash
       redirect_to "/login", flash: { flash: "hey login-toi pour y accéder" }
     end
   end

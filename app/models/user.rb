@@ -6,12 +6,12 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX, message: "Format d'email invalide" },
                     uniqueness: { case_sensitive: false }
 
-  has_secure_password validations: false
-  validates :password, presence: true, 
+  has_secure_password validations: false #This way we can custom validations
+  validates :password, presence: true,
                        confirmation: {message: "Les mots de passe ne correspondent pas"},
                        length: { in: 6..40, message: "Rentrez un mot de passe entre 6 et 40 caractères" }
   # Everything below is for the cookies
-  # Returns a random token. 
+  # Returns a random token.
   def User.new_token
     SecureRandom.urlsafe_base64
   end
@@ -22,7 +22,7 @@ class User < ApplicationRecord
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
-  
+
   # Remembers a user in the database for use in persistent sessions.
   def remember
     # remember_token is an instance variable
