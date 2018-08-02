@@ -8,13 +8,13 @@ class SessionsController < ApplicationController
       log_in user
       redirect_to("/secret_page")
     else
-      flash.now[:danger] = 'Invalid email/password combination'
+      flash.now[:danger] = 'Mauvaise combinaison email/mot de passe. Essayez de nouveau'
       render 'new'
     end
   end
 
   def destroy
     log_out
-    redirect_to root_url
+    redirect_to root_url, success: "Déconnecté !"
   end
 end
