@@ -8,5 +8,5 @@ class User < ApplicationRecord
   has_secure_password validations: false
   validates :password, presence: true,
                        confirmation: true,
-                       length: { within: 6..40, message: "Rentrez un mot de passe entre 6 et 40 caractères" }
+                       length: { in: 6..40, message: "Rentrez un mot de passe entre 6 et 40 caractères" }
 end

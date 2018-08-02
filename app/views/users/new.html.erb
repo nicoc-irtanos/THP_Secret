@@ -7,15 +7,15 @@
         <%= form_for(@user) do |f| %>
           <%= f.label :email %>
           <br>
-          <%= f.email_field :email %>
+          <%= f.email_field :email, placeholder: "exemple@exemple.com" %>
           <br>
           <%= f.label :password %>
           <br>
-          <%= f.password_field :password %>
+          <%= f.password_field :password, placeholder: "Mot de passe" %>
           <br>
           <%= f.label :password_confirmation, "Confirmation" %>
           <br>
-          <%= f.password_field :password_confirmation %>
+          <%= f.password_field :password_confirmation, placeholder: "Confirmer mot de passe" %>
           <br>
           <br>
           <%= f.submit "Create my account", class: "btn btn-primary" %>
