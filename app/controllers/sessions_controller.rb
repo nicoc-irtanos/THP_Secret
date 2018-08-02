@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       log_in user
-      redirect_to("/secret_page")
+      redirect_to "/secret_page", flash: {success: 'Connecté !'}
     else
       redirect_to "/login", flash: { danger: 'Mauvaise combinaison email/mot de passe. Essayez de nouveau'}
     end
